@@ -1,13 +1,9 @@
-main() {
+main() async{
   //print("This is asynchronous programming tutorial");
   //print("This is asynchronous programming in dart");
-  login('444444', '5555').then((value){
-    if(value) {
-      print("Facebook Login");
-    }else {
-      print("your password or username doesn't exist");
-    }
-  });
+  print("Function starts");
+  await test();
+  print("After all done");
 }
 
 Future<bool> login(String phone, String password) async {
@@ -18,6 +14,14 @@ Future<bool> login(String phone, String password) async {
   }else {
     return false;
   }
+}
+
+
+Future<void> test() async {
+  await Future.delayed(Duration(seconds: 5), (){
+    print("Run after 5 seconds.");
+  });
+  print("Function ends.");
 }
 
 
